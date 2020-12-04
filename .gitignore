@@ -13,3 +13,11 @@
 
 # Dependency directories (remove the comment below to include it)
 # vendor/
+
+*.iml
+.idea/
+*.DS_Store
+vendor/
+bin/
+main
+main.exe

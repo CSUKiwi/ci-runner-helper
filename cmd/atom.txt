@@ -1,0 +1,61 @@
+package cmd
+
+import (
+"fmt"
+"github.com/spf13/cobra"
+)
+
+
+var (
+	stage	   string
+	pipelineId string
+	stageIndex	int
+	jobIndex int
+	atomIndex int
+	atomUrl string
+	//ci_data_dir
+	//ci_data_input
+	//ci_data_output
+)
+func init() {
+	atomCmd.Flags().StringVarP(&stage,"stage","t","before","stage")
+	atomCmd.Flags().StringVarP(&pipelineId,"pipelineId","p","","pipelineId")
+	atomCmd.Flags().IntVarP(&stageIndex, "stageIndex", "s", 0, "stageIndex")
+	atomCmd.Flags().IntVarP(&jobIndex, "jobIndex", "j", 0, "jobIndex")
+	atomCmd.Flags().IntVarP(&atomIndex, "atomIndex", "a", 0, "atomIndex")
+	atomCmd.Flags().StringVarP(&pipelineId,"atomUrl","u","","atomUrl")
+
+	rootCmd.AddCommand(atomCmd)
+}
+
+var atomCmd = &cobra.Command{
+	Use:   "atom",
+	Short: "atom",
+	Run: func(cmd *cobra.Command, args []string) {
+		fmt.Println("i am atom cmd")
+
+		//switch stage {
+		//case "before":
+		//	script := fmt.Sprintf("#!/usr/bin/env bash\n" +
+		//		"set -eo pipefail\n" +
+		//		"set +o noclobber\n" +
+		//		"export ci_data_dir=/workspace/xxyyzz/stage-0/job-0/atom-0\n" +
+		//		"export ci_data_input=input.json\n" +
+		//		"export ci_data_output=output.json\n" +
+		//		"mkdir -p $ci_data_dir\n" +
+		//		"wget http://10.244.167.188:80/goBash -O $ci_data_dir/goBash\n" +
+		//		"wget http://172.20.10.3:8080/api/v4/atom/maven/input -O $ci_data_dir/input.json\n" +
+		//		"chmod +x $ci_data_dir/goBash\n",)
+		//	break
+		//case "after":
+		//	//解析 $ci_data_dir/$ci_data_output
+		//	// type=artifact (dir,file)
+		//	// 压缩 zip
+		//	// 上传
+		//	break
+		//}
+
+
+		fmt.Sprintf("")
+	},
+}
